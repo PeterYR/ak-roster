@@ -153,7 +153,7 @@ const ProfileDialog = (props: Props) => {
                     alt="Discord"
                   />
                 </Box>
-                {social?.discord?.username}#{social?.discord?.tag}
+                {social?.discord?.username}
                 <Reddit /> {social && social.reddit && <Link href={`https://reddit.com/u/${social.reddit}`} rel="noreferrer">{social.reddit}</Link>}
               </Box>
             </Box>
