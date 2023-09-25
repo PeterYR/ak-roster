@@ -146,15 +146,25 @@ const ProfileDialog = (props: Props) => {
                 alignItems: "center",
                 height: "min-content", pl: 1
               }}>
-                <Box sx={{ width: "24px", height: "24px", position: "relative" }}>
-                  <Image
-                    src="/img/ext/icon_clyde_white_RGB.svg"
-                    layout="fill"
-                    alt="Discord"
-                  />
-                </Box>
-                {social?.discord?.username}
-                <Reddit /> {social && social.reddit && <Link href={`https://reddit.com/u/${social.reddit}`} rel="noreferrer">{social.reddit}</Link>}
+                {/* skip rendering Discord/Reddit if unavailable */}
+                {social?.discord?.username &&
+                  <>
+                    <Box sx={{ width: "24px", height: "24px", position: "relative" }}>
+                      <Image
+                        src="/img/ext/icon_clyde_white_RGB.svg"
+                        layout="fill"
+                        alt="Discord"
+                      />
+                    </Box>
+                    {social?.discord?.username}
+                  </>
+                }
+                {social?.reddit &&
+                  <>
+                    <Reddit />
+                    <Link href={`https://reddit.com/u/${social.reddit}`} rel="noreferrer">{social.reddit}</Link>
+                  </>
+                }
               </Box>
             </Box>
           </Box>
